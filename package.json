@@ -1,0 +1,39 @@
+{
+  "name": "@8ar8az/the-brain-games",
+  "version": "0.1.0",
+  "description": "Package of small games, similar known \"Brain Games\".",
+  "main": "",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8ar8az/Brain-Games-Hexlet.git"
+  },
+  "keywords": [
+    "games",
+    "brain",
+    "fun"
+  ],
+  "author": "Nikita Mokrous",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/8ar8az/Brain-Games-Hexlet/issues"
+  },
+  "homepage": "https://github.com/8ar8az/Brain-Games-Hexlet#readme",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
