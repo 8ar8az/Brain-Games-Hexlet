@@ -1,4 +1,4 @@
-import getRandomNumber from './generator';
+import getRandomNumber from '../generator';
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 

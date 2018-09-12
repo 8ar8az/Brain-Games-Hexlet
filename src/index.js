@@ -21,11 +21,11 @@ export default ({ description, makeQuestion }) => {
       return;
     }
 
-    const { questionText, correctAnswer } = makeQuestion();
+    const { questionText, correctAnswer } = makeQuestion(correctQuestionsCount);
     UI.showQuestion(questionText);
     const userAnswer = UI.getAnswer();
 
-    if (correctAnswer !== userAnswer) {
+    if (String(correctAnswer) !== userAnswer) {
       UI.showLosingMessage(username, correctAnswer, userAnswer);
       return;
     }

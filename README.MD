@@ -6,3 +6,6 @@ It's package of mini-games, similar known "Brain Games". The basis of these game
   
 ### Asciinema Brain-Even
 [Play](https://asciinema.org/a/8QfNvA9iJKKQUvRjF7vLXZ8zc)
+  
+### Asciinema Brain-Calc
+[Play](https://asciinema.org/a/66rRs0bPsL8WoqYE9G3zGaYHF)
