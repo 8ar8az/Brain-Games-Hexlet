@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import main from '..';
+import startGame from '..';
 
-main();
+startGame();

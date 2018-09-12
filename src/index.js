@@ -1,8 +1,38 @@
-import readlineSync from 'readline-sync';
+import * as UI from './ui';
 
-export default () => {
-  console.log('Welcome to the Brain Games!\n');
+const questionsCountForWin = 3;
 
-  const userName = readlineSync.question('May I have your name?\n');
-  console.log(`Hello, ${userName}`);
+const makeIntroduce = (gameDescription) => {
+  UI.welcome();
+  UI.showDescription(gameDescription);
+
+  const username = UI.getUserName();
+  UI.greeting(username);
+
+  return username;
+};
+
+export default ({ description, makeQuestion }) => {
+  const username = makeIntroduce(description);
+
+  const askQuestion = (correctQuestionsCount) => {
+    if (correctQuestionsCount === questionsCountForWin) {
+      UI.showWinningMessage(username);
+      return;
+    }
+
+    const { questionText, correctAnswer } = makeQuestion();
+    UI.showQuestion(questionText);
+    const userAnswer = UI.getAnswer();
+
+    if (correctAnswer !== userAnswer) {
+      UI.showLosingMessage(username, correctAnswer, userAnswer);
+      return;
+    }
+
+    UI.showCorrectMessage();
+    askQuestion(correctQuestionsCount + 1);
+  };
+
+  askQuestion(0);
 };
