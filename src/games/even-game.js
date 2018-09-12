@@ -1,4 +1,5 @@
 import getRandomNumber from '../generator';
+import gameEngine from '..';
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 
@@ -13,4 +14,6 @@ const makeQuestion = () => {
   return { questionText, correctAnswer };
 };
 
-export default { description, makeQuestion };
+const game = { description, makeQuestion };
+
+export default () => gameEngine(game);

@@ -1,4 +1,5 @@
 import getRandomNumber from '../generator';
+import gameEngine from '..';
 
 const description = 'What is the result of the expression?';
 
@@ -7,38 +8,32 @@ const possibleOperations = ['+', '-', '*'];
 const maxOfPossibleNumbersForSumOrDif = 100;
 const maxOfPossibleNumbersForProduct = 10;
 
-const questionForOperationType = {
-  '+': () => {
-    const firstNumber = getRandomNumber(maxOfPossibleNumbersForSumOrDif);
-    const secondNumber = getRandomNumber(maxOfPossibleNumbersForSumOrDif);
-
-    const questionText = `Question: ${firstNumber} + ${secondNumber}`;
-    const correctAnswer = firstNumber + secondNumber;
-    return { questionText, correctAnswer };
+const maxAndCorrectAnswerForOperationType = {
+  '+': {
+    max: maxOfPossibleNumbersForSumOrDif,
+    getCorrectAnswer: (firstNumber, secondNumber) => firstNumber + secondNumber,
   },
-  '-': () => {
-    const firstNumber = getRandomNumber(maxOfPossibleNumbersForSumOrDif);
-    const secondNumber = getRandomNumber(maxOfPossibleNumbersForSumOrDif);
-
-    const numbers = [firstNumber, secondNumber].sort();
-
-    const questionText = `Question: ${numbers[1]} - ${numbers[0]}`;
-    const correctAnswer = numbers[1] - numbers[0];
-    return { questionText, correctAnswer };
+  '-': {
+    max: maxOfPossibleNumbersForSumOrDif,
+    getCorrectAnswer: (firstNumber, secondNumber) => firstNumber - secondNumber,
   },
-  '*': () => {
-    const firstNumber = getRandomNumber(maxOfPossibleNumbersForProduct);
-    const secondNumber = getRandomNumber(maxOfPossibleNumbersForProduct);
-
-    const questionText = `Question: ${firstNumber} * ${secondNumber}`;
-    const correctAnswer = firstNumber * secondNumber;
-    return { questionText, correctAnswer };
+  '*': {
+    max: maxOfPossibleNumbersForProduct,
+    getCorrectAnswer: (firstNumber, secondNumber) => firstNumber * secondNumber,
   },
 };
 
 const makeQuestion = (countQuestion) => {
   const currentOperation = possibleOperations[countQuestion % possibleOperations.length];
-  return questionForOperationType[currentOperation]();
+  const { max, getCorrectAnswer } = maxAndCorrectAnswerForOperationType[currentOperation];
+
+  const [lesserNumber, biggerNumber] = [getRandomNumber(max), getRandomNumber(max)].sort();
+
+  const correctAnswer = getCorrectAnswer(biggerNumber, lesserNumber);
+  const questionText = `${biggerNumber} ${currentOperation} ${lesserNumber}`;
+  return { questionText, correctAnswer };
 };
 
-export default { description, makeQuestion };
+const game = { description, makeQuestion };
+
+export default () => gameEngine(game);
