@@ -9,3 +9,6 @@ It's package of mini-games, similar known "Brain Games". The basis of these game
   
 ### Asciinema Brain-Calc
 [Play](https://asciinema.org/a/66rRs0bPsL8WoqYE9G3zGaYHF)
+
+### Asciinema Brain-GCD
+[Play](https://asciinema.org/a/fyuYdqb0UyLTHOP8vCypKIKef)
