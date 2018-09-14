@@ -1,27 +1,18 @@
 import readlineSync from 'readline-sync';
 
-const welcome = () => {
+const presentGame = (description) => {
   console.log('Welcome to the Brain Games!\n');
-};
-
-const getUserName = () => {
-  const username = readlineSync.question('May I have your name?\n');
-  return username;
-};
-
-const greeting = (username) => {
-  console.log(`Hello, ${username}! Let's start!\n`);
-};
-
-const showDescription = (description) => {
   console.log(`${description}\n`);
 };
 
-const showQuestion = (questionText) => {
-  console.log(questionText);
+const getUsername = () => {
+  const username = readlineSync.question('May I have your name?\n');
+  console.log(`Hello, ${username}! Let's start!\n`);
+  return username;
 };
 
-const getAnswer = () => {
+const askQuestionAndGetAnswer = (questionText) => {
+  console.log(questionText);
   const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer;
 };
@@ -34,18 +25,15 @@ const showWinningMessage = (username) => {
   console.log(`Congratulations, ${username}!`);
 };
 
-const showLosingMessage = (username, correctAnswer, userAnswer) => {
+const showLoosingMessage = (username, correctAnswer, userAnswer) => {
   console.log(`\n'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${username}`);
 };
 
 export {
-  welcome,
-  getUserName,
-  greeting,
-  showDescription,
-  showQuestion,
-  getAnswer,
+  presentGame,
+  getUsername,
+  askQuestionAndGetAnswer,
   showCorrectMessage,
   showWinningMessage,
-  showLosingMessage,
+  showLoosingMessage,
 };

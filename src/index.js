@@ -1,38 +1,35 @@
 import * as UI from './ui';
 
-const questionsCountForWin = 3;
+const countCorrectAnswersForWin = 3;
 
-const makeIntroduce = (gameDescription) => {
-  UI.welcome();
-  UI.showDescription(gameDescription);
-
-  const username = UI.getUserName();
-  UI.greeting(username);
-
-  return username;
+const isWin = (currentCountCorrectAnswers) => {
+  if (currentCountCorrectAnswers === countCorrectAnswersForWin) return true;
+  return false;
 };
 
-export default ({ description, makeQuestion }) => {
-  const username = makeIntroduce(description);
+const isCorrectAnswer = (correctAnswer, userAnswer) => correctAnswer === userAnswer;
 
-  const askQuestion = (correctQuestionsCount) => {
-    if (correctQuestionsCount === questionsCountForWin) {
+export default ({ description, makeQuestion }) => {
+  UI.presentGame(description);
+  const username = UI.getUsername();
+
+  const playRound = (currentCountCorrectAnswers) => {
+    if (isWin(currentCountCorrectAnswers)) {
       UI.showWinningMessage(username);
       return;
     }
 
-    const { questionText, correctAnswer } = makeQuestion(correctQuestionsCount);
-    UI.showQuestion(questionText);
-    const userAnswer = UI.getAnswer();
+    const { questionText, correctAnswer } = makeQuestion(currentCountCorrectAnswers);
+    const userAnswer = UI.askQuestionAndGetAnswer(questionText);
 
-    if (String(correctAnswer) !== userAnswer) {
-      UI.showLosingMessage(username, correctAnswer, userAnswer);
+    if (!isCorrectAnswer(correctAnswer, userAnswer)) {
+      UI.showLoosingMessage(username, correctAnswer, userAnswer);
       return;
     }
 
     UI.showCorrectMessage();
-    askQuestion(correctQuestionsCount + 1);
+    playRound(currentCountCorrectAnswers + 1);
   };
 
-  askQuestion(0);
+  playRound(0);
 };
