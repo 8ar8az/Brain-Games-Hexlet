@@ -18,3 +18,6 @@ It's package of mini-games, similar known "Brain Games". The basis of these game
 
 ### Asciinema Brain-Progression
 [Play](https://asciinema.org/a/eB5bS76wfdUXY8mHw3tPfx3We)
+
+### Asciinema Brain-Prime
+[Play](https://asciinema.org/a/aHIp1vCeuQhLwK4ePeHKYmro7)
