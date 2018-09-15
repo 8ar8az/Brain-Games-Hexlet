@@ -7,7 +7,7 @@ const isWin = (currentCountCorrectAnswers) => {
   return false;
 };
 
-const isCorrectAnswer = (correctAnswer, userAnswer) => correctAnswer === userAnswer;
+const isUserAnswerCorrect = (correctAnswer, userAnswer) => String(correctAnswer) === userAnswer;
 
 export default ({ description, makeQuestion }) => {
   UI.presentGame(description);
@@ -22,7 +22,7 @@ export default ({ description, makeQuestion }) => {
     const { questionText, correctAnswer } = makeQuestion(currentCountCorrectAnswers);
     const userAnswer = UI.askQuestionAndGetAnswer(questionText);
 
-    if (!isCorrectAnswer(correctAnswer, userAnswer)) {
+    if (!isUserAnswerCorrect(correctAnswer, userAnswer)) {
       UI.showLoosingMessage(username, correctAnswer, userAnswer);
       return;
     }

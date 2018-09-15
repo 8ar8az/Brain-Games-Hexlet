@@ -1,4 +1,4 @@
-import getRandomNumber from '../generator';
+import { getRandomNumber } from '../generators';
 import gameEngine from '..';
 
 const description = 'Balance the given number.';

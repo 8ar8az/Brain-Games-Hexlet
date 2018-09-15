@@ -15,3 +15,6 @@ It's package of mini-games, similar known "Brain Games". The basis of these game
 
 ### Asciinema Brain-Balance
 [Play](https://asciinema.org/a/pBTHHntevNtAZWwx6ZE8hNbu9)
+
+### Asciinema Brain-Progression
+[Play](https://asciinema.org/a/eB5bS76wfdUXY8mHw3tPfx3We)

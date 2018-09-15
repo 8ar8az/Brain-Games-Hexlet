@@ -1,4 +1,4 @@
-import getRandomNumber from '../generator';
+import { getRandomNumber } from '../generators';
 import gameEngine from '..';
 
 const description = 'What is the result of the expression?';
@@ -23,8 +23,8 @@ const maxAndCorrectAnswerForOperationType = {
   },
 };
 
-const makeQuestion = (countQuestion) => {
-  const currentOperation = possibleOperations[countQuestion % possibleOperations.length];
+const makeQuestion = (countQuestions) => {
+  const currentOperation = possibleOperations[countQuestions % possibleOperations.length];
   const { max, getCorrectAnswer } = maxAndCorrectAnswerForOperationType[currentOperation];
 
   const [lesserNumber, biggerNumber] = [getRandomNumber(max), getRandomNumber(max)].sort();
