@@ -29,6 +29,21 @@ const showLoosingMessage = (username, correctAnswer, userAnswer) => {
   console.log(`\n'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${username}`);
 };
 
+const chooseGame = (games) => {
+  console.log('What kind of game do you want to play?');
+  const indexInGameList = readlineSync.keyInSelect(games, 'Your choice?',
+    { cancel: 'EXIT' });
+
+  if (indexInGameList === -1) {
+    return 'Exit';
+  }
+  return games[indexInGameList];
+};
+
+const sayGoodbye = () => {
+  console.log('Bye-bye! See you later!');
+};
+
 export {
   presentGame,
   getUsername,
@@ -36,4 +51,6 @@ export {
   showCorrectMessage,
   showWinningMessage,
   showLoosingMessage,
+  chooseGame,
+  sayGoodbye,
 };

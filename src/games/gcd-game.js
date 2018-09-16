@@ -1,5 +1,7 @@
 import { getRandomNumber } from '../generators';
-import gameEngine from '..';
+import gameEngine from '../engine';
+
+const gameName = 'Brain-GCD';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
@@ -22,4 +24,6 @@ const makeQuestion = () => {
 
 const game = { description, makeQuestion };
 
-export default () => gameEngine(game);
+export const startGame = () => gameEngine(game);
+
+export default { [gameName]: startGame };

@@ -1,5 +1,7 @@
 import { getRandomNumber, getRandomProgression } from '../generators';
-import gameEngine from '..';
+import gameEngine from '../engine';
+
+const gameName = 'Brain-Progression';
 
 const description = 'What number is missing in progression?';
 
@@ -23,4 +25,6 @@ const makeQuestion = () => {
 
 const game = { description, makeQuestion };
 
-export default () => gameEngine(game);
+export const startGame = () => gameEngine(game);
+
+export default { [gameName]: startGame };

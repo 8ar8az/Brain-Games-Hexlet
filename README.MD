@@ -21,3 +21,6 @@ It's package of mini-games, similar known "Brain Games". The basis of these game
 
 ### Asciinema Brain-Prime
 [Play](https://asciinema.org/a/aHIp1vCeuQhLwK4ePeHKYmro7)
+
+### Asciinema Brain-Games menu
+[Play](https://asciinema.org/a/gB1RL0MLYmfmqS9Za2hyTxJ2H)

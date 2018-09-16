@@ -1,5 +1,7 @@
 import { getRandomNumber } from '../generators';
-import gameEngine from '..';
+import gameEngine from '../engine';
+
+const gameName = 'Brain-Balance';
 
 const description = 'Balance the given number.';
 
@@ -27,4 +29,6 @@ const makeQuestion = () => {
 
 const game = { makeQuestion, description };
 
-export default () => gameEngine(game);
+export const startGame = () => gameEngine(game);
+
+export default { [gameName]: startGame };
