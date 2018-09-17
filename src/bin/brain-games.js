@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import showStartMenu from '../menu';
+import { controlMenu } from '..';
 
-showStartMenu();
+controlMenu();

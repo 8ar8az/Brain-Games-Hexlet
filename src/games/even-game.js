@@ -18,6 +18,4 @@ const makeQuestion = () => {
 
 const game = { description, makeQuestion };
 
-export const startGame = () => gameEngine(game);
-
-export default { [gameName]: startGame };
+export default { [gameName]: () => gameEngine(game) };

@@ -32,12 +32,10 @@ const makeQuestion = (countQuestions) => {
   const [lesserNumber, biggerNumber] = [getRandomNumber(max), getRandomNumber(max)].sort();
 
   const correctAnswer = getCorrectAnswer(biggerNumber, lesserNumber);
-  const questionText = `${biggerNumber} ${currentOperation} ${lesserNumber}`;
+  const questionText = `Question: ${biggerNumber} ${currentOperation} ${lesserNumber}`;
   return { questionText, correctAnswer };
 };
 
 const game = { description, makeQuestion };
 
-export const startGame = () => gameEngine(game);
-
-export default { [gameName]: startGame };
+export default { [gameName]: () => gameEngine(game) };

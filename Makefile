@@ -9,6 +9,7 @@ build:
 	npm run build
 
 publish:
+	rm -rf dist
 	npm publish
 
 lint:

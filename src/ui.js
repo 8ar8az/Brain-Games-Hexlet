@@ -22,27 +22,25 @@ const showCorrectMessage = () => {
 };
 
 const showWinningMessage = (username) => {
-  console.log(`Congratulations, ${username}!`);
+  console.log(`Congratulations, ${username}!\n`);
 };
 
 const showLoosingMessage = (username, correctAnswer, userAnswer) => {
-  console.log(`\n'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${username}`);
+  console.log(`\n'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'\nLet's try again, ${username}\n`);
 };
 
-const chooseGame = (games) => {
-  console.log('What kind of game do you want to play?');
-  const indexInGameList = readlineSync.keyInSelect(games, 'Your choice?',
-    { cancel: 'EXIT' });
-
-  if (indexInGameList === -1) {
-    return 'Exit';
-  }
-  return games[indexInGameList];
+const getSelectedMenuItem = (menuItems) => {
+  console.log('\nWhat kind of game do you want to play?');
+  const index = readlineSync.keyInSelect(menuItems, 'Your choice?',
+    { cancel: false });
+  return menuItems[index];
 };
 
 const sayGoodbye = () => {
   console.log('Bye-bye! See you later!');
 };
+
+const getUserWishToRepeat = () => readlineSync.keyInYN('Do you want to gaming more once?');
 
 export {
   presentGame,
@@ -51,6 +49,7 @@ export {
   showCorrectMessage,
   showWinningMessage,
   showLoosingMessage,
-  chooseGame,
+  getSelectedMenuItem,
   sayGoodbye,
+  getUserWishToRepeat,
 };

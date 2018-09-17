@@ -1,4 +1,4 @@
+import controlMenu from './menu';
 import gameEngine from './engine';
-import showStartMenu from './menu';
 
-export { gameEngine, showStartMenu };
+export { controlMenu, gameEngine };
